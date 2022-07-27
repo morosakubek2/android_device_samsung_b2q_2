@@ -24,7 +24,14 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
+on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+    setprop sys.usb.configfs 1
+    # unlink /efs > /mnt/vendor/efs
+    rm /efs
+    mkdir /efs
+    mkdir /sec_efs
+    
 on boot
     setprop ro.boot.vbmeta.avb_version 1.1
     setprop ro.boot.avb_version 1.1
@@ -36,7 +43,10 @@ on boot
     insmod /vendor/lib/modules/1.1/sec_common_fn.ko
     insmod /vendor/lib/modules/1.1/sec_tsp_dumpkey.ko
     insmod /vendor/lib/modules/1.1/sec_cmd.ko
-    insmod /vendor/lib/modules/1.1/slsi_ts.ko
+    
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral    
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
