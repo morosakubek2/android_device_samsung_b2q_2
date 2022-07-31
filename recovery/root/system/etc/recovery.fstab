@@ -43,10 +43,10 @@ vendor	/vendor	ext4	ro	wait,avb,logical,first_stage_mount
 /dev/block/bootdevice/by-name/metadata    /metadata       ext4        defaults                  wait,first_stage_mount
 /dev/block/bootdevice/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	wait,encryptable=footer,length=-16384
 /dev/block/bootdevice/by-name/cache       /cache          ext4        defaults                  recoveryonly
-/dev/block/mmcblk0p1                      /sdcard         sdfat       defaults                  recoveryonly
+#/dev/block/mmcblk0p1                      /sdcard         vfat       defaults                  recoveryonly
 /dev/block/bootdevice/by-name/efs     /efs            ext4        defaults                  recoveryonly
 /dev/block/bootdevice/by-name/sec_efs     /sec_efs        ext4        defaults                  recoveryonly
-/dev/block/bootdevice/by-name/carrier     /carrier        ext4        defaults                  recoveryonly
+#/dev/block/bootdevice/by-name/carrier     /carrier        ext4        defaults                  recoveryonly
 
 # FOTA
 /dev/block/bootdevice/by-name/apnhlos     /modem          emmc        defaults                  recoveryonly
@@ -58,8 +58,8 @@ product	/product	ext4	ro	wait,avb,logical,first_stage_mount
 /dev/block/bootdevice/by-name/misc        /misc           emmc        defaults                  recoveryonly
 
 # Samsung ODE
-/dev/block/bootdevice/by-name/keydata     /keydata        ext4        defaults                  recoveryonly
-/dev/block/bootdevice/by-name/keyrefuge	/keyrefuge	f2fs	defaults	recoveryonly
+#/dev/block/bootdevice/by-name/keydata     /keydata        ext4        defaults                  recoveryonly
+#/dev/block/bootdevice/by-name/keyrefuge	/keyrefuge	f2fs	defaults	recoveryonly
 
 #Auto-generated code by FOTA Portal
 odm	/odm	ext4	ro	wait,avb,logical,first_stage_mount
