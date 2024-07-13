@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := device/samsung/b2q
+
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := lahaina
