@@ -18,6 +18,8 @@ DEVICE_PATH := device/samsung/b2q
 
 ALLOW_MISSING_DEPENDENCIES := true
 
+TARGET_SUPPORTS_64_BIT_APPS := false
+
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := lahaina
