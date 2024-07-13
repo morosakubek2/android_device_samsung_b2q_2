@@ -16,6 +16,8 @@
 
 DEVICE_PATH := device/samsung/b2q
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := lahaina
@@ -39,7 +41,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
 
-TARGET_USES_64_BIT_BINDER := true
+#TARGET_USES_64_BIT_BINDER := true
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
@@ -143,3 +145,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.l
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
 RECOVERY_KERNEL_MODULES := $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD)
 TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
+
+TARGET_KERNEL_CONFIG := vendor/b2q_eur_openx_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/b2q
